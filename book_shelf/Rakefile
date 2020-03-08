@@ -2,3 +2,17 @@ ENV["SINATRA_ENV"] ||= "development"
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
+
+task :migrate => :environment do
+    User.create_table
+  end 
+end
+
+task :environment do
+  require_relative './config/environment'
+end
+
+task :console => :environment do 
+  Pry.start 
+end
+end 
