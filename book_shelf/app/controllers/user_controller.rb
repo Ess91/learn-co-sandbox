@@ -2,8 +2,9 @@ require './config/environment'
 
 class UserController < ApplicationController
   
-  get '/registrations/signup' do
-    erb :'/registrations/signup'
+  get '/signup' do
+    #"Hello World"
+    erb '/signup'
   end
   
   post '/registrations' do
