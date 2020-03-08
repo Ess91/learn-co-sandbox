@@ -4,7 +4,7 @@ class UserController < ApplicationController
     erb :'/registrations/signup'
   end
   
-  post '/registrations' do
+  post '/signup' do
     @user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
     @user.save
     session[:user_id] = @user.id
