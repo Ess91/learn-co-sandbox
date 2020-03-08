@@ -2,16 +2,13 @@ require './config/environment'
 
 class UserController < ApplicationController
   
- # get "/signup" do
-    #"Hello World"
-  #  erb '/signup'
-#  end
+ 
   
   get '/signup' do
     if logged_in?
-      redirect to '/users/page'
+      redirect to '/users/page'     #Route - if user is able to login, thery are redirected to their personal page, if not they would
     else
-      erb :'/registrations/signup'
+      erb :'/registrations/signup'   #be redirected back to the signup
     end
   end
   
