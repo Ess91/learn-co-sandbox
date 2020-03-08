@@ -1,10 +1,12 @@
+require './config/environment'
+
 class UserController < ApplicationController
   
   get '/registrations/signup' do
     erb :'/registrations/signup'
   end
   
-  post '/signup' do
+  post '/registrations' do
     @user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
     @user.save
     session[:user_id] = @user.id
