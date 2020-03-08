@@ -27,7 +27,7 @@ class UserController < ApplicationController
   end 
   
   post '/login' do
-    @user = User.find_by(email: params[:email], password: params[:password]) #Finds users' info
+    @user = User.find_by(username: params[:username], password: params[:password]) #Finds users' info
     if @user
       session[:user_id] = @user.id
       puts params
