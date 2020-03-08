@@ -13,14 +13,6 @@ class ApplicationController < Sinatra::Base
     erb :index
   end 
 
- # get '/' do                  
-  #  if logged_in?             #be redirected back to the welcome (index) page
-   #   redirect 'users/index'
-  #  else
-   #   erb :index
-  #  end 
-#  end 
-
 
   # helpers do
     def logged_in?
