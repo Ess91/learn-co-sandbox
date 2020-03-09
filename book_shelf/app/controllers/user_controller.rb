@@ -29,7 +29,7 @@ class UserController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username], password: params[:password]) #Finds users' info
     if @user
-      session[:user_id] = @user.id
+      session[:user_id] = @user.id #(need to add a new column of user id)
       puts params
       redirect '/users/page' #if info is found, redirect them to personal page if not,
     end
@@ -47,4 +47,4 @@ class UserController < ApplicationController
   end
 end
   
-#end 
+end 
