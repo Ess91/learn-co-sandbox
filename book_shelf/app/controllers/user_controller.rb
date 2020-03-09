@@ -19,22 +19,45 @@ class UserController < ApplicationController
   end
 #post 'signup' - First time users, completes the forms. Once completed, the info will be saved and this we redirect them to their personal page 
 
-  get 'login' do
-    if logged_in?
-    redirect '/users/page'
-  else
-    erb :'/sessions/login'
-  end 
+ # get 'login' do
+  #  if logged_in?
+   # redirect '/users/page'
+#  else
+ #   erb :'/sessions/login'
+#  end 
   
+ # post '/login' do
+  #  @user = User.find_by(username: params[:username], password: params[:password]) #Finds users' info
+   # if @user
+    #  session[:user_id] = @user.id #(need to add a new column of user id)
+     # puts params
+    #  redirect '/users/page' #if info is found, redirect them to personal page if not,
+  #  end
+   # redirect '/sessions/login' #redirect to login page
+  #end
+  
+  get "/login" do
+		erb '/sessions/login'
+	end
+
   post '/login' do
-    @user = User.find_by(username: params[:username], password: params[:password]) #Finds users' info
-    if @user
-      session[:user_id] = @user.id #(need to add a new column of user id)
-      puts params
-      redirect '/users/page' #if info is found, redirect them to personal page if not,
-    end
-    redirect '/sessions/login' #redirect to login page
-  end
+     if @user && @user.authenticate(params[:password])
+       session[:user_id] = @user.id
+
+       redirect to '/user/page'
+     else
+       redirect to '/sessions/login'
+     end
+  end	
+  
+  get '/page' do
+		if logged_in?
+			redirect '/page'
+		else
+			redirect '/login'
+		end
+	end
+  
   
   get '/sessions/logout' do 
     session.clear
@@ -47,4 +70,4 @@ class UserController < ApplicationController
   end
 end
   
-end 
+#end 
