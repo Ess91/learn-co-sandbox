@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200308222202) do
+ActiveRecord::Schema.define(version: 20200309223432) do
 
   create_table "books", force: :cascade do |t|
     t.string  "title"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20200308222202) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
+    t.string  "username"
+    t.string  "email"
+    t.string  "password_digest"
+    t.integer "user_id"
   end
 
 end
