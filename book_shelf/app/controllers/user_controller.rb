@@ -36,23 +36,34 @@ class UserController < ApplicationController
    # redirect '/sessions/login' #redirect to login page
   #end
   
-  get "/login" do
-		erb '/sessions/login'
-	end
+  
+  
+  #get "/login" do
+	#	erb '/sessions/login'
+	#end
+
+ get 'login' do
+    if logged_in?
+    redirect '/users/page'
+  else
+    erb :'/sessions/login'
+  end 
 
   post '/login' do
-     if @user && @user.authenticate(params[:password])
-       session[:user_id] = @user.id
+    @user = User.find_by(:username => params[:username])
+    
+     if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    redirect '/users/page'
+  else
+    redirect '/sessions/login'
+  end
+end
 
-       redirect to '/user/page'
-     else
-       redirect to '/sessions/login'
-     end
-  end	
   
   get '/page' do
 		if logged_in?
-			redirect '/page'
+			erb :page
 		else
 			redirect '/login'
 		end
@@ -63,11 +74,5 @@ class UserController < ApplicationController
     session.clear
     redirect '/'
   end
-  
-  get '/users/home' do
- @user = User.find(session[:user_id])
-  erb :'/users/home'
-  end
-end
-  
-#end 
+ end 
+end 
