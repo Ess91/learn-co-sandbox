@@ -42,14 +42,6 @@ end
 end
 
   
- # get '/page' do
-	#	if logged_in?
-	#		erb :page
-	#	else
-	#		redirect '/login'
-	#	end
-	#end
-  
   #Logout
   get '/logout' do 
     session.clear
