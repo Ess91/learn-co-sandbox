@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20200309223432) do
     t.string  "author"
     t.string  "genre"
     t.integer "price"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "password_digest"
-    t.integer "user_id"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
 end

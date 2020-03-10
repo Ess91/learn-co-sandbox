@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end 
 
+#login, logout - ApplicationController
 
   # helpers do
     def logged_in?
