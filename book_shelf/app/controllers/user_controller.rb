@@ -28,6 +28,7 @@ class UserController < ApplicationController
   else
     erb :'/users/login'
   end 
+end 
 
   post '/login' do
     @user = User.find_by(:username => params[:username])
@@ -52,9 +53,10 @@ end
   #Logout
   get '/logout' do 
     session.clear
-    redirect '/login'
-  else
     redirect '/'
+  #else
+ #   redirect '/'
   end
  end 
-end 
+#end 
+#end 
