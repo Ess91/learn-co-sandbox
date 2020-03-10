@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<h2>Hello <%= @user.username %> ! </h2>
+<br>
+
+<h3>Welcome To Your Virtual Book Shelf:</h3>
+<br>
+<% @books.each do |book| %>
+  <div>
+    <p>Title: <a href="/books/<%=book.id%>"><%= book.title %></a></p>
+    <p>Author: <%= book.author %></p>
+    <p>Genre: <%= review.genre %></p>
+    <p>Price: <%= review.price %></p>
+    
+    <% end %>
+
+<a href="/books/new"> Add Another Book To Your Shelf Review to your list </a><br>
+<a href="/logout"> Log Out </a>
