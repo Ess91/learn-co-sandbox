@@ -1,8 +1,9 @@
 class BookController < ApplicationController
   
+  #Create
   get '/articles/new' do    #The first one is a GET request to load the form to create a new book.
-    if logged_in?
-      redirect '/books/add_book'
+    if is_logged_in?
+      redirect '/books/new'
     else
       redirect '/users/login'
   end
@@ -13,11 +14,15 @@ end
   redirect to "/books/#{@book.id}"
 end
 
+  #Read 
+  
+
   get '/books/:id' do #order to display a single article, we need a show action. This route uses a dynamic URL, we can access the ID of the article in the view through the params hash.
   @book = Book.find_by_id(params[:id])
   erb :'/books/show'
 end
 
+  #Update
   get '/books/:id/edit' do  #loads the edit form in the browser 
     @book = Book.find_by_id(params[:id])
     erb :'/books/edit_book'
@@ -33,6 +38,8 @@ end
   redirect to "/books/#{@book.id}"
 end
 #First, we pull the article by the ID from the URL, then we update the title and content attributes and save. The action ends with a redirect to the article show page.
+
+#Delete 
 
   delete '/books/:id' do #delete action
   @book = Book.find_by_id(params[:id])

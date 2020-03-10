@@ -2,6 +2,7 @@ require './config/environment'
 
 class UserController < ApplicationController
   
+  #SignUp
   get '/signup' do
     if logged_in?
       redirect to '/users/page'     #Route - if user is able to login, thery are redirected to their personal page, if not they would
@@ -19,32 +20,11 @@ class UserController < ApplicationController
   end
 #post 'signup' - First time users, completes the forms. Once completed, the info will be saved and this we redirect them to their personal page 
 
- # get 'login' do
-  #  if logged_in?
-   # redirect '/users/page'
-#  else
- #   erb :'/sessions/login'
-#  end 
-  
- # post '/login' do
-  #  @user = User.find_by(username: params[:username], password: params[:password]) #Finds users' info
-   # if @user
-    #  session[:user_id] = @user.id #(need to add a new column of user id)
-     # puts params
-    #  redirect '/users/page' #if info is found, redirect them to personal page if not,
-  #  end
-   # redirect '/sessions/login' #redirect to login page
-  #end
-  
-  
-  
-  #get "/login" do
-	#	erb '/sessions/login'
-	#end
-
- get 'login' do
+ 
+  #Login
+ get '/login' do
     if logged_in?
-    redirect '/users/page'
+    redirect '/books/index'
   else
     erb :'/users/login'
   end 
@@ -54,24 +34,26 @@ class UserController < ApplicationController
     
      if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/users/page'
+    redirect '/books/index'
   else
     redirect '/users/login'
   end
 end
 
   
-  get '/page' do
-		if logged_in?
-			erb :page
-		else
-			redirect '/login'
-		end
-	end
+ # get '/page' do
+	#	if logged_in?
+	#		erb :page
+	#	else
+	#		redirect '/login'
+	#	end
+	#end
   
-  
-  get '/sessions/logout' do 
+  #Logout
+  get '/logout' do 
     session.clear
+    redirect '/login'
+  else
     redirect '/'
   end
  end 
