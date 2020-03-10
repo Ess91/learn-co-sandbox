@@ -1,0 +1,19 @@
+#Editing the individual book
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<h2> Edit Book </h2>
+    <h2> <%= @book.title %> <%= @book.author %></h2><br>
+
+  <form action="/books/<%= @book.id %>" method="POST">
+
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="text" placeholder= "Title:" name="title">
+      <input type="text" placeholder= "Author:"name="author">
+      <input type="text" placeholder= "Genre:" name="genre">
+      <input type="text" placeholder= "Price:" name="price"><br><br>
+      <button type="update" value="Update" id="update">Update</button>
+  </form>
+</html>
