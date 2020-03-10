@@ -6,7 +6,7 @@ class UserController < ApplicationController
     if logged_in?
       redirect to '/users/page'     #Route - if user is able to login, thery are redirected to their personal page, if not they would
     else
-      erb :'/registrations/signup'   #be redirected back to the signup
+      erb :'/users/signup'   #be redirected back to the signup
     end
   end
   
@@ -46,7 +46,7 @@ class UserController < ApplicationController
     if logged_in?
     redirect '/users/page'
   else
-    erb :'/sessions/login'
+    erb :'/users/login'
   end 
 
   post '/login' do
@@ -56,7 +56,7 @@ class UserController < ApplicationController
     session[:user_id] = user.id
     redirect '/users/page'
   else
-    redirect '/sessions/login'
+    redirect '/users/login'
   end
 end
 
