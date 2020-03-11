@@ -12,12 +12,22 @@ class UserController < ApplicationController
   end
   
   post '/signup' do
-    @user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
-    @user.save
-    session[:user_id] = @user.id
-      puts params
-    redirect '/books/index'
-  end
+    if params[:name] != "" && params[:username] != "" && params[:password] != ""
+      @new_user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
+      @new_user.save
+      session[:user_id] = @user.id
+      redirect '/users/index'
+    else
+      redirect '/users/signup'
+    end 
+  end 
+    
+  #  @user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
+  #  @user.save
+   # session[:user_id] = @user.id
+    #  puts params
+  #  redirect '/books/index'
+#  end
 #post 'signup' - First time users, completes the forms. Once completed, the info will be saved and this we redirect them to their personal page 
 
  
