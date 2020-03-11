@@ -13,7 +13,7 @@ class UserController < ApplicationController
   
   post '/signup' do
     if params[:name] != "" && params[:username] != "" && params[:password] != ""
-      @new_user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
+      @new_user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
       @new_user.save
       session[:user_id] = @user.id
       redirect '/users/index'
