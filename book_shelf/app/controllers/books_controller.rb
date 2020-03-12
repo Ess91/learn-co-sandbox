@@ -36,35 +36,24 @@ end
   end
 
   patch '/books/:id' do #handles the edit form submission.
-    @book = Book.find(params[:id])
-    @book.update(title:params[:title], author:params[:author], genre:params[:genre], price:params[:price])
-    redirect "/books/#{@book.id}"
-  end 
-  
-  #@book = Book.find_by_id(params[:id])
-  #@book.title = params[:title]
-  #@book.author = params[:author]
-  #@book.genre = params[:genre]
-  #@book.price = params[:price]
-  #@book.save
-  #redirect to "/books/#{@book.id}"
-#end
+    @book = Book.find_by_id(params[:id])
+    @book.title = params[:title]
+    @book.author = params[:author]
+    @book.genre = params[:genre]
+    @book.price = params[:price]
+    @book.save
+  redirect to "/books/#{@book.id}"
+end
 #First, we pull the article by the ID from the URL, then we update the title and content attributes and save. The action ends with a redirect to the article show page.
 
   
   #Delete 
 
   delete '/books/:id' do #delete action
-    @book = Book.find(params[:id])
-    @book.destroy
+    @book = Book.find_by_id(params[:id])
+    @book.delete
     redirect '/books'
-  #  redirect '/articles'
+  
   end 
 #end 
     
- # @book = Book.find_by_id(params[:id])
-  #@book.delete
-  #redirect to '/books'
-  #end
- #end 
-#end 
