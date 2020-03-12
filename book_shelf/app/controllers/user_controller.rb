@@ -17,7 +17,7 @@ class UserController < ApplicationController
       @user.save
       session[:user_id] = @user.id
       puts params
-    redirect '/books/index'
+    redirect '/books'
   end
       
     # if params[:name] != "" && params[:username] != "" && params[:password] != ""
@@ -54,7 +54,7 @@ end
     
      if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/books/index'
+    redirect '/books'
   else
     redirect '/users/login'
   end

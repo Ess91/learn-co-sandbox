@@ -1,13 +1,16 @@
 class BookController < ApplicationController
   
   #Create
-  get '/articles/new' do    #The first one is a GET request to load the form to create a new book.
+  get '/books/new' do    #The first one is a GET request to load the form to create a new book.
     if is_logged_in?
       redirect '/books/new'
     else
       redirect '/users/login'
-  end
-end 
+   end
+  end 
+  
+  get 
+
 
   post '/books' do  #create action. Responds to a POST request and creates a new book based on the params from the form and saves it to the database. Once the item is created, this action redirects to the show page
   @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:content], :price => params[:price])
