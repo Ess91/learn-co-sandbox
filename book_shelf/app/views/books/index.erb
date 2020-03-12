@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
     
- <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-
-<h2>Welcome To Your Virtual Book Shelf:</h2>
+ <h2>Hello <%= @user.username %> ! </h2>
 <br>
-<% @books.each do |book| %>
-  
+
+<h3>Welcome To Your Virtual Book Shelf:</h3>
+<br>
+<% @user.books.each do |book| %>
     <p>Title: <a href="/books/<%=book.id%>"><%= book.title %></a></p>
     <p>Author: <%= book.author %></p>
     <p>Genre: <%= book.genre %></p>
     <p>Price: <%= book.price %></p>
     
     <% end %>
+
+<a href="/books/new"> Add Another Book To Your Shelf Review to your list </a><br>
+<a href="/logout"> Log Out </a>
+</html>
+
 
 
 
