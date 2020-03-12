@@ -32,7 +32,7 @@ end
   
   get '/books/:id/edit' do  #loads the edit form in the browser 
     @book = Book.find(params[:id])
-    erb :'/books/edit_book'
+    erb :'/books/edit'
   end
 
   patch '/books/:id' do #handles the edit form submission.
