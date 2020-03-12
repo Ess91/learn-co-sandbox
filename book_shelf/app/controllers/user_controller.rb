@@ -82,3 +82,9 @@ end
 # end 
 #end 
 #end 
+
+get '/books/index' do
+ @user = User.find(session[:user_id])
+  erb :'/books/home'
+  end
+#end
