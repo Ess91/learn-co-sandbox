@@ -3,6 +3,7 @@ require './config/environment'
 class UserController < ApplicationController
   
   #SignUp
+  
   get '/signup' do
     if logged_in?
       redirect '/books'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
@@ -13,13 +14,14 @@ class UserController < ApplicationController
     
     
     post '/signup' do 
-      if params[:username] != "" && params[:password] != ""
-      @user = User.new(name: params["name"], username: params["username"], email: params["email"], password: params["password"])
-      @user.save
-      session[:user_id] = @user.id
-      redirect '/users/index'
-    else 
-    redirect '/users/signup'
+     if params[:name] != "" && params[:username] != "" && params[:password] != ""
+     @new_user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
+     @new_user.save
+     session[:user_id] = @new_user.id
+     redirect to '/users/index'
+    else
+     redirect to '/signup'
+    end
   end
       
     
@@ -89,4 +91,4 @@ get '/books/index' do
   erb :'/books/index'
   end
 end
-end 
+#end 
