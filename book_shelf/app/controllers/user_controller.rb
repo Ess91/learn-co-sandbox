@@ -79,8 +79,6 @@ end
   get '/logout' do 
     session.clear
     redirect '/'
-  #else
- #   redirect '/'
   end
 # end 
 #end 
@@ -91,3 +89,4 @@ get '/books/index' do
   erb :'/books/index'
   end
 end
+end 
