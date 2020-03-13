@@ -5,7 +5,7 @@ class UserController < ApplicationController
   #SignUp
   get '/signup' do
     if logged_in?
-      redirect to '/books/index'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
+      redirect '/books'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
     else
       erb :'/users/signup'   #be redirected back to the signup
     end
@@ -13,13 +13,16 @@ class UserController < ApplicationController
     
     
     post '/signup' do 
-      @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+      if params[:username] != "" && params[:password] != ""
+      @user = User.new(name: params["name"], username: params["username"], email: params["email"], password: params["password"])
       @user.save
       session[:user_id] = @user.id
-      puts params
-    redirect '/books'
+      redirect '/users/index'
+    else 
+    redirect '/users/signup'
   end
       
+    
     # if params[:name] != "" && params[:username] != "" && params[:password] != ""
      # @user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
     #  @user.save
