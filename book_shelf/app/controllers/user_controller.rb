@@ -14,7 +14,7 @@ class UserController < ApplicationController
     
     
     post '/signup' do 
-     if  params[:username] != "" && params[:email] != "" && params[:password] != "" 
+     if params[:username] != "" && params[:email] != "" && params[:password] != "" 
      @new_user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
      @new_user.save
      session[:user_id] = @new_user.id
@@ -24,25 +24,7 @@ class UserController < ApplicationController
     end
   end
       
-    
-    # if params[:name] != "" && params[:username] != "" && params[:password] != ""
-     # @user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
-    #  @user.save
-     # session[:user_id] = @user.id
-    #  erb :signup
-    #  redirect '/users/index'
-    #else
-     # redirect '/users/signup'
-  #  end 
- # end 
-    
-  #  @user = User.new(full_name: params["full_name"], username: params["username"], email: params["email"], password: params["password"])
-  #  @user.save
-   # session[:user_id] = @user.id
-    #  puts params
-  #  redirect '/books/index'
-#  end
-#post 'signup' - First time users, completes the forms. Once completed, the info will be saved and this we redirect them to their personal page 
+
 
  
   #Login
@@ -83,12 +65,4 @@ end
     redirect '/'
   end
  end 
-#end 
-#end 
 
-#get '/books/index' do
- #@user = User.find(session[:user_id])
-  #erb :'/books/index'
-  #end
-#end
-#end 
