@@ -14,8 +14,8 @@ class UserController < ApplicationController
     
     
     post '/signup' do 
-     if params[:name] != "" && params[:username] != "" && params[:password] != ""
-     @new_user = User.new(:name => params[:name], :username => params[:username], :password => params[:password])
+     if params[:full_name] != "" && params[:username] != "" && params[:email] != "" && params[:password] != "" 
+     @new_user = User.new(:full_name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
      @new_user.save
      session[:user_id] = @new_user.id
      redirect to '/users/index'
@@ -82,13 +82,13 @@ end
     session.clear
     redirect '/'
   end
-# end 
+ end 
 #end 
 #end 
 
-get '/books/index' do
- @user = User.find(session[:user_id])
-  erb :'/books/index'
-  end
-end
+#get '/books/index' do
+ #@user = User.find(session[:user_id])
+  #erb :'/books/index'
+  #end
+#end
 #end 
