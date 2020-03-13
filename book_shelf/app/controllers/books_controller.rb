@@ -20,14 +20,14 @@ class BookController < ApplicationController
 
 #Read 
   get '/books' do 
-    if logged_in?
-      @user = current_user
-      @books = @user.books.all 
-      erb :'/books/index'
-    else 
-      redirect '/login'
-   # @book = Book.all 
-#    erb :'/books/index'
+   # if logged_in?
+    #  @user = current_user
+     # @books = @user.books.all 
+    #  erb :'/books/index'
+  #  else 
+   #   redirect '/login'
+ #   @books = Book.all 
+    redirect '/books/index'
   end 
 end 
 
@@ -63,5 +63,5 @@ end
     redirect '/books'
   
   end 
-end 
+#end 
     

@@ -53,7 +53,7 @@ end
     @current_user = User.find_by_id(session[:user_id])
     if @current_user
    
-      erb :'/books/index'
+      redirect '/books/index'
     else
       erb :index
     end
