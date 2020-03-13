@@ -20,12 +20,11 @@ class UserController < ApplicationController
      session[:user_id] = @new_user.id
      redirect '/books/index'
     else
-     erb :'/users/signup'
+      erb :'/users/signup'
     end
   end
       
-
-
+  
  
   #Login
  get '/login' do
