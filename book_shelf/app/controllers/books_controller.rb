@@ -6,7 +6,7 @@ class BookController < ApplicationController
      # @books = Book.create(params)
     #  @books.save
     if is_logged_in?
-      erb:'/books/new'
+      erb :'/books/new'
     else
       redirect '/login'
    end
@@ -23,7 +23,7 @@ class BookController < ApplicationController
 #Read 
   get '/books' do 
     @books = Book.all 
-    redirect '/books'
+    erb :'/books/index'
   end 
   
   get '/books/:id' do #order to display a single article, we need a show action. This route uses a dynamic URL, we can access the ID of the article in the view through the params hash.
