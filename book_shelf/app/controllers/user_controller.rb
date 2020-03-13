@@ -49,15 +49,15 @@ end
 
 
   
-  get '/books/index' do
-    @current_user = User.find_by_id(session[:user_id])
-    if @current_user
+ # get '/books/index' do
+  #  @current_user = User.find_by_id(session[:user_id])
+   # if @current_user
    
-      redirect '/books/index'
-    else
-      erb :index
-    end
-  end
+    #  redirect '/books/index'
+  #  else
+   #   erb :index
+  #  end
+#  end
   
   #Logout
   get '/logout' do 
