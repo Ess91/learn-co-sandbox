@@ -24,10 +24,6 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/books/index' do 
-    if logged_in?
-    erb :'/books/index'
-  else 
-    redirect '/users/login'
-  end 
+  erb :'/books/index'
  end
 end 
