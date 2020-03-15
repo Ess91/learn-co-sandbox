@@ -9,13 +9,12 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "bookreader"
   end
   
- #Homepage
+ #HOMEPAGE
   get '/' do 
     erb :index
   end 
 
 
- # helpers do
     def logged_in?
       !!current_user
     end
@@ -24,5 +23,9 @@ class ApplicationController < Sinatra::Base
   #  @user = User.find(session[:user_id])
    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
+  
+  get '/books/index' do 
+    "Hello World"
+  end 
  end
 #end 
