@@ -28,30 +28,30 @@ class UserController < ApplicationController
   end
   
       
- get '/users/index' do
-   if logged_in?
-    erb :'/users/index'
-  else
-    redirect '/login'
-  end 
- end 
+# get '/users/index' do
+ #  if logged_in?
+  #  redirect '/users/index'
+#  else
+ #   erb :'/users/login'
+#  end 
+# end 
 
  
  
   #Login
  get '/login' do
-    if logged_in?
-    redirect '/books/index'
-  else
+   # if logged_in?
+  #  redirect '/books/index'
+  #else
     erb :'/users/login'
-  end 
+#  end 
 end 
 
   post '/login' do
-    @user = User.find_by(:username => params[:username])
+    @current_user = User.find_by(:username => params[:username])
     
-     if user && user.authenticate(params[:password])
-    session[:user_id] = user.id
+     if @current_user && @current_user.authenticate(params[:password])
+    session[:user_id] = @current_user.id
     redirect '/books'
   else
     redirect '/users/login'
