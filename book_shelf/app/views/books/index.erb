@@ -1,15 +1,28 @@
-Hello <%= current_user.username %> !
+<h1>Hello <%= current_user.username %> ! </h1>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <h2>Welcome To Your Personal Book Shelf!</h2>
+        
+     <div class="modal-body">
+          <form action="/books/new" method=POST class="form center-block">
+            <div class="form-group">
+              <textarea class="form-control input-lg" name = "title" autofocus="" placeholder="Book Title"></textarea>
+              <textarea class="form-control input-lg" name = "author" autofocus="" placeholder="Author"></textarea>
+              <textarea class="form-control input-lg" name = "genre" autofocus="" placeholder="Genre"></textarea>
+              <textarea class="form-control input-lg" name = "price" autofocus="" placeholder="Price"></textarea>
+            </div>
+            <input class="btn btn-primary btn-sm" type="submit" value="Submit" id="submit">
+          </form>
+      </div>
         
     
     
    
 
-<a href="/books/new"> Add Another Book To Your Shelf </a><br>
-<a href="/logout"> Log Out </a>
+  <a href="/books/new"> Add Another Book To Your Shelf </a><br>
+  <a href="/logout"> Log Out </a>
 
 
 </head>
