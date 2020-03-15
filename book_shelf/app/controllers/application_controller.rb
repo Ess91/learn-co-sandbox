@@ -20,12 +20,14 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-  #  @user = User.find(session[:user_id])
    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
   
   get '/books/index' do 
-    redirect '/books/index'
+    if logged_in?
+    erb :'/books/index'
+  else 
+    redirect '/users/login'
   end 
  end
-#end 
+end 
