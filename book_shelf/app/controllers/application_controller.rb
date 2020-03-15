@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   end
   
   get '/books/index' do 
-    "Hello World"
+    redirect '/books/index'
   end 
  end
 #end 
