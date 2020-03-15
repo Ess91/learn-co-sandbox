@@ -5,11 +5,12 @@ class UserController < ApplicationController
   #SignUp
   
   get '/signup' do
-  #  if logged_in?
-   #   redirect '/books'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
-  #  else
+   # if logged_in?
+    #  redirect '/books'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
+    #else
       erb :'/users/signup'   #be redirected back to the signup
-    end
+  #  end
+  end 
 
     
     
