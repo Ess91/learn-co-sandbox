@@ -2,16 +2,12 @@ require './config/environment'
 
 class UserController < ApplicationController
   
-  #SignUp
+  #SIGNUP
   
   get '/signup' do
-   # if logged_in?
-    #  redirect '/books'    #Route - if user is able to login, thery are redirected to their personal page, if not they would
-    #else
-      erb :'/users/signup'   #be redirected back to the signup
-  #  end
+      erb :'/users/signup'
   end 
-
+    #Route - if user is able to login, thery are redirected to their personal page, if not they would be redirected back to the signup
     
     
     post '/signup' do 
@@ -28,23 +24,19 @@ class UserController < ApplicationController
   end
   
       
-# get '/users/index' do
- #  if logged_in?
-  #  redirect '/users/index'
-#  else
- #   erb :'/users/login'
-#  end 
-# end 
+ #get '/users/index' do
+   #if logged_in?
+   # erb :'/users/index'
+  #else
+   # redirect '/users/login'
+  #end 
+ #end 
 
  
- 
-  #Login
+  #LOGIN
+  
  get '/login' do
-   # if logged_in?
-  #  redirect '/books/index'
-  #else
     erb :'/users/login'
-#  end 
 end 
 
   post '/login' do
@@ -59,11 +51,11 @@ end
 end
 
   
-  #Logout
+  #LOGOUT 
+  
   get '/logout' do 
     session.clear
     redirect '/'
   end
 end 
-#end 
 
