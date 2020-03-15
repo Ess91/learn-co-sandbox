@@ -10,7 +10,7 @@ class UserController < ApplicationController
   #  else
       erb :'/users/signup'   #be redirected back to the signup
     end
-  end
+
     
     
     post '/signup' do 
@@ -24,9 +24,8 @@ class UserController < ApplicationController
     else
       redirect '/users/signup'
     end
-  #end
+  end
   
-
       
  get '/users/index' do
    if logged_in?
@@ -34,7 +33,7 @@ class UserController < ApplicationController
   else
     redirect '/login'
   end 
- #end 
+ end 
 
  
  
@@ -65,5 +64,5 @@ end
     redirect '/'
   end
 end 
-end 
+#end 
 
