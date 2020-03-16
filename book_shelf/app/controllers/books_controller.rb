@@ -37,6 +37,9 @@ class BookController < ApplicationController
 
 #READ
   get '/books' do 
+    @books = Book.all
+    erb :index
+  end 
    # if logged_in?
     #  @user = current_user
      # @books = @user.books.all 
@@ -44,9 +47,9 @@ class BookController < ApplicationController
   #  else 
    #   redirect '/login'
  #   @books = Book.all 
-    redirect '/books/index'
-  end 
-end 
+  #  redirect '/books/index'
+#  end 
+#end 
 
   get '/books/:id' do 
   @book = Book.find_by_id(params[:id])
@@ -81,5 +84,5 @@ end
     redirect '/books'
   
   end 
-#end 
+end 
     

@@ -11,7 +11,17 @@
     <p> (Iterate to allow lists of books to show)</p>
         
     
-    
+      <% @books.each do |book| %>
+            <div>
+    <p>Book Title: <a href="/books/<%=review.id%>"><%= book.title %></a></p>
+    <p>Author: <%= book.author %></p>
+    <p>Genre: <%= book.genre %></p>
+    <p>Price: <%= book.price %></p>
+  </div>
+<% end %>
+
+
+      
    
 
   <a href="/books/new"> Add New Book </a><br>
