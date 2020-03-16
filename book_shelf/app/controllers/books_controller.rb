@@ -11,14 +11,31 @@ class BookController < ApplicationController
   end 
   
    
-    post '/books' do  #create action. Responds to a POST request and creates a new book based on the params from the form and saves it to the database. Once the item is created, this action redirects to the show page
- # @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:content], :price => params[:price])
-  @books = Book.create(params)
-  redirect "/books/#{@book.id}"
+  #  post '/books' do  
+#  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:content], :price => params[:price])
+ # @books = Book.create(params)
+#  redirect "/books/#{@book.id}"
+ #   end
+  #create action. Responds to a POST request and creates a new book based on the params from the form and saves it to the database. Once the item is created, this action redirects to the show page
+  
+  post '/reviews' do
+    if params[:title] == "" || params[:author] == "" || params[:genre] == "" || params[:price] == "" # must have title, genre, content, & rating
+      
+      redirect to '/books/new'
+    else
+      user = current_user
+      @book = Book.create(
+        :title => params[:title],
+        :author => params[:author],
+        :genre => params[:genre],
+        :price => params[:price],
+        :user_id => user.id)
+      redirect to "/books/#{@book.id}"
     end
-#end 
+  end
 
-#Read 
+
+#READ
   get '/books' do 
    # if logged_in?
     #  @user = current_user
@@ -31,12 +48,13 @@ class BookController < ApplicationController
   end 
 end 
 
-  get '/books/:id' do #order to display a single article, we need a show action. This route uses a dynamic URL, we can access the ID of the article in the view through the params hash.
+  get '/books/:id' do 
   @book = Book.find_by_id(params[:id])
   erb :'/books/show'
 end
+#Order to display a single article, we need a show action. This route uses a dynamic URL, we can access the ID of the article in the view through the params hash.
 
-#Update
+#UPDATE
   
   get '/books/:id/edit' do  #loads the edit form in the browser 
     @book = Book.find(params[:id])

@@ -28,6 +28,4 @@ class ApplicationController < Sinatra::Base
   get '/books/index' do 
   erb :'/books/index'
  end
- 
-   
 end 
