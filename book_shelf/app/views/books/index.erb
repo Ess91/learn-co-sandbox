@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <a href="/books/new"> Add Book </a><br>
+      
         <h2>Welcome To Your Personal Book Shelf!</h2>
       <p>This is your virtual book shelf where you could see a list of your favourite books in one go. You can add, edit, delete and update to make your collection personal to you</p>
       <p>Hope you enjoy growing your shelf!!! </p>
@@ -11,14 +13,11 @@
     <p> (Iterate to allow lists of books to show)</p>
         
     
-      <% @books.each do |book| %>
-            <div>
-    <p>Book Title: <a href="/books/<%=review.id%>"><%= book.title %></a></p>
-    <p>Author: <%= book.author %></p>
-    <p>Genre: <%= book.genre %></p>
-    <p>Price: <%= book.price %></p>
+     <% @books.each do |book| %>
+  <div>
+    <%= book.title %>
   </div>
-<% end %>
+<% end %> 
 
 
       
