@@ -114,11 +114,22 @@ end
   
   #Delete 
 
-  delete '/books/:id' do #delete action
-    @book = Book.find_by_id(params[:id])
-    @book.delete
-    redirect '/books'
+#  delete '/books/:id' do #delete action
+ #   @book = Book.find_by_id(params[:id])
+#    @book.delete
+ #   redirect '/books'
   
-  end 
+#  end 
+#end 
+
+delete '/books/:id' do
+    @book = Book.find_by_id(params[:id])
+    if @book.user_id == current_user.id
+      @book.delete
+    end
+      redirect to "/books"
+  end
 end 
+
+
     
