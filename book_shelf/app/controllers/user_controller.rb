@@ -24,13 +24,13 @@ class UserController < ApplicationController
   end
   
       
- #get '/users/index' do
-   #if logged_in?
-   # erb :'/users/index'
-  #else
-   # redirect '/users/login'
-  #end 
- #end 
+ get '/users/index' do
+   if logged_in?
+    erb :'/users/index'
+  else
+    redirect '/users/login'
+  end 
+ end 
 
  
   #LOGIN

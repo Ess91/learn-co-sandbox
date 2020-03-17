@@ -6,83 +6,65 @@ class BookController < ApplicationController
     if logged_in?
       erb :'/books/new'
     else
-      redirect '/login'
+      redirect '/users/login'
    end
   end 
   
    
-  #  post '/books' do  
-#  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:content], :price => params[:price])
- # @books = Book.create(params)
-#  redirect "/books/#{@book.id}"
- #   end
+    post '/books' do  
+  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:content], :price => params[:price])
+  @books = Book.create(params)
+  redirect "/books/#{@book.id}"
+    end
   #create action. Responds to a POST request and creates a new book based on the params from the form and saves it to the database. Once the item is created, this action redirects to the show page
   
-  post '/books' do
-    if params[:title] == "" || params[:author] == "" || params[:genre] == "" || params[:price] == "" # must have title, genre, content, & rating
+ # post '/books' do
+  #  if params[:title] == "" || params[:author] == "" || params[:genre] == "" || params[:price] == "" # must have title, genre, content, & rating
       
-      redirect to '/books/new'
-    else
-      user = current_user
-      @book = Book.create(
-        :title => params[:title],
-        :author => params[:author],
-        :genre => params[:genre],
-        :price => params[:price],
-        :user_id => user.id)
-      redirect to "/books/#{@book.id}"
-    end
-  end
+   #   redirect to '/books/new'
+  #  else
+   #   user = current_user
+    #  @book = Book.create(
+     #   :title => params[:title],
+      #  :author => params[:author],
+       # :genre => params[:genre],
+        #:price => params[:price],
+        #:user_id => user.id)
+     # redirect to "/books/#{@book.id}"
+  #  end
+  #end
 
 
 #READ
- # get '/books' do 
-  #  @books = Book.all
-  #  erb :index
-  #end 
-   # if logged_in?
-    #  @user = current_user
-     # @books = @user.books.all 
-    #  erb :'/books/index'
-  #  else 
-   #   redirect '/login'
- #   @books = Book.all 
-  #  redirect '/books/index'
-#  end 
-#end 
+  get '/books' do 
+    if logged_in?
+      @user = current_user
+      @books = Book.all 
+      erb :'books/index'
+    else 
+      redirect '/users/login'
+  end 
+end 
 
-get '/books' do
-  #  if logged_in?
-   #   @user = current_user
-      @books = Book.all
-    #  erb :'books/index'
-    #else
-     # redirect to '/users/login'
-    #end
-  end
   
   
- # get '/books/:id' do 
-#  @books = Book.find_by_id(params[:id])
-#  erb :'/books/show'
-#end
+  get '/books/:id' do 
+  if logged_in?
+    @book = Book.find_by_id(params[:id])
+    erb :'books/new'
+  else 
+    redirect 'users/login'
+  end 
+end
 #Order to display a single article, we need a show action. This route uses a dynamic URL, we can access the ID of the article in the view through the params hash.
 
-  get '/books/:id' do
-    if logged_in?
-      @book = Book.find_by_id(params[:id])
-      erb :'books/show'
-    else
-      redirect to '/login'
-    end
-  end
 
 #UPDATE
   
- # get '/books/:id/edit' do  #loads the edit form in the browser 
-  #  @book = Book.find(params[:id])
+#  get '/books/:id/edit' do  #loads the edit form in the browser 
+   # @book = Book.find(params[:id])
   #  erb :'/books/edit'
-  #end
+ # end
   
    get '/books/:id/edit' do
     if logged_in?
