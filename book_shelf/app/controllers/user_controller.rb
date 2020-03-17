@@ -39,5 +39,12 @@ end
     redirect '/users/login'
   end
  end
+ 
+  #LOGOUT 
+  
+  get '/logout' do 
+    session.clear
+    redirect '/'
+  end
 end 
 
