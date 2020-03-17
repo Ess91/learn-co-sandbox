@@ -38,11 +38,12 @@ class BookController < ApplicationController
 #READ
   get '/books' do 
     if logged_in?
-      @user = current_user
-      @books = Book.all 
+   #   @user = current_user
+    #  @books = Book.all 
       erb :'books/index'
-    else 
-      redirect '/users/login'
+    #else 
+     # redirect '/users/login'
+    # "hi"
   end 
 end 
 
