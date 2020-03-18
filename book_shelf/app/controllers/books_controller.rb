@@ -69,7 +69,7 @@ end
 #First, we pull the article by the ID from the URL, then we update the title and content attributes and save. The action ends with a redirect to the article show page.
 
   delete '/books/:id' do
-    Recipe.destroy(params[:id])
+    Book.destroy(params[:id])
     redirect to '/books'
   end
 
