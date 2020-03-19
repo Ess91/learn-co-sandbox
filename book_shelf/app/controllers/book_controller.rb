@@ -3,6 +3,8 @@ class BookController < ApplicationController
    
   #READ
     get '/books' do
+      @books = Book.all 
+      
    # if logged_in?
     #  @user = current_user 
      # @books = Book.all 
@@ -47,10 +49,10 @@ end
   end 
 end
 
-  get '/books/:id' do
-    @book = Book.find_by_id(params[:id])
-    erb :show
-  end
+ # get '/books/:id' do
+  #  @book = Book.find_by_id(params[:id])
+   # erb :show
+  #end
   
   get '/books/:id/edit' do
     @book = Book.find_by_id(params[:id])

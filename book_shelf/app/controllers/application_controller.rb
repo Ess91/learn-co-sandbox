@@ -25,9 +25,10 @@ class ApplicationController < Sinatra::Base
   
   #USERS HOMEPAGE
   
-  get '/books/index' do 
-  erb :'/books/index'
- end
+#  get '/books/index' do 
+ # erb :'/books/index'
+# end
+ 
  
  
 end 

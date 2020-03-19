@@ -8,7 +8,7 @@ class UserController < ApplicationController
   
   post '/signup' do 
       if logged_in?
-        redirect '/books'
+        redirect '/books/index'
      elsif params[:username] != "" && params[:email] != "" && params[:password] != "" 
      @new_user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
      @new_user.save
