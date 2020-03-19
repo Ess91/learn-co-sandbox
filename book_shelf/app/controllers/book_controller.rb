@@ -26,7 +26,7 @@ end
   end 
   
 
-  post '/books/new' do  
+  post '/books' do  
   @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
   redirect "/books/#{@book.id}"
 end
@@ -49,11 +49,6 @@ end
   end 
 end
 
- # get '/books/:id' do
-  #  @book = Book.find_by_id(params[:id])
-   # erb :show
-  #end
-  
   get '/books/:id/edit' do
     @book = Book.find_by_id(params[:id])
     erb :'/books/edit'
