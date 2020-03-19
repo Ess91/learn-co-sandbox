@@ -17,7 +17,7 @@ end
 
 
   #CREATE
-    get '/books/new' do    #The first one is a GET request to load the form to create a new book.
+    get '/books' do    #The first one is a GET request to load the form to create a new book.
     if logged_in?
       erb :'/books/new'
     else
@@ -26,7 +26,7 @@ end
   end 
   
 
-  post '/books' do  
+  post '/books/new' do  
   @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
   redirect "/books/#{@book.id}"
 end
