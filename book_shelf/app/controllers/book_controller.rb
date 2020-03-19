@@ -31,14 +31,7 @@ end
   redirect "/books/#{@book.id}"
 end
  
- #   post '/books' do 
-  #     if logged_in? && params[:title] != "" && params[:author] != "" && params[:genre] != "" && params[:price] != ""
-   #      @new_book = Book.create(params)
-    #     @new_book.user_id = current_user.id 
-     #    @new_book.save 
-    #     redirect '/users/index'
-     #  end 
-     #end 
+
      
        get '/books/:id' do 
   if logged_in?
