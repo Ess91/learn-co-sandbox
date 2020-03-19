@@ -73,7 +73,7 @@ end
 
   delete '/books/:id' do
     Book.destroy(params[:id])
-    redirect to '/books'
+    redirect '/books'
   end
 
 end	

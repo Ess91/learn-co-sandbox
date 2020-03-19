@@ -30,7 +30,7 @@ end
     
      if @current_user && @current_user.authenticate(params[:password])
     session[:user_id] = @current_user.id
-    redirect '/books'
+    redirect '/books/index'
   else
     redirect '/users/login'
   end
