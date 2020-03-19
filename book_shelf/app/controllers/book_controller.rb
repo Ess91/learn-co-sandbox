@@ -43,9 +43,9 @@ end
        get '/books/:id' do 
   if logged_in?
     @book = Book.find_by_id(params[:id])
-    erb :'books/new'
+    erb :'/books/index'
   else 
-    redirect 'users/login'
+    redirect '/users/login'
   end 
 end
 
