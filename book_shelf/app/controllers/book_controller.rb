@@ -50,7 +50,7 @@ end
   redirect "/books/#{@book.id}"
 end
 
-#First, we pull the article by the ID from the URL, then we update the title and content attributes and save. The action ends with a redirect to the article show page.
+#First, we pull the book by the ID from the URL, then we update the title and other attributes and save. The action ends with a redirect to the book show page.
 
   delete '/books/:id' do
     Book.destroy(params[:id])
