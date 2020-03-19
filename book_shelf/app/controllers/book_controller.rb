@@ -17,7 +17,7 @@ end
 
 
   #CREATE
-    get '/books' do    #The first one is a GET request to load the form to create a new book.
+    get '/books/new' do    #The first one is a GET request to load the form to create a new book.
     if logged_in?
       erb :'/books/new'
     else
@@ -36,7 +36,7 @@ end
        get '/books/:id' do 
   if logged_in?
     @book = Book.find_by_id(params[:id])
-    erb :'/books/index'
+    erb :'/books/show'
   else 
     redirect '/users/login'
   end 
