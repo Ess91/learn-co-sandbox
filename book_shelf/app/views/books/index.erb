@@ -14,6 +14,13 @@
       <br>
       <p>Here is a list of your books: </p>
       <br>
+      
+      <% @books.each do |book| %>
+  <div>
+    <%= book.title %>
+  </div>
+<% end %>
+
 
 
 
