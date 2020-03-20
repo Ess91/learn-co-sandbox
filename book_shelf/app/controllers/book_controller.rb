@@ -23,11 +23,14 @@ class BookController < ApplicationController
   end 
   
 
-  post '/books' do  
+  post '/books' do 
+    if logged_in?
   @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
   redirect "/books/#{@book.id}"
-end
- 
+  else 
+    redirect '/users/login'
+  end
+ end
 
      
        get '/books/:id' do 
@@ -54,16 +57,9 @@ end
   redirect "/books/#{@book.id}"
 end
 
-#First, we pull the book by the ID from the URL, then we update the title and other attributes and save. The action ends with a redirect to the book show page.
 
   delete '/books/:id' do
     Book.destroy(params[:id])
     redirect '/books'
   end
-
-end	
-
-         
-         
-  #create action. Responds to a POST request and creates a new book based on the params from the form and saves it to the database. Once the item is created, this action redirects to the show page
-#end 
+end
