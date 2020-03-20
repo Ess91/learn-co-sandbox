@@ -3,15 +3,19 @@ class BookController < ApplicationController
    
   #READ
     get '/books' do
+      if logged_in?
       @books = Book.all 
       erb :'/books/index'
+    else
+      redirect '/users/login'
     end 
+  end 
     #DONE
 
 
   #CREATE
     get '/books/new' do    #The first one is a GET request to load the form to create a new book.
-    if logged_in?
+    if logged_in? 
       erb :'/books/new'
     else
       redirect '/users/login'
