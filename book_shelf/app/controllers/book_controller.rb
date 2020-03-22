@@ -46,9 +46,14 @@ end
 end
 
   get '/books/:id/edit' do
+    if logged_in?
     @book = Book.find_by_id(params[:id])
     erb :'/books/edit'
-  end
+  else 
+    redirect 'users/login'
+   end 
+end
+  #In order to edit the book. it will be able to access the book's id first through :id before it is able to edit the book
   
   patch '/books/:id' do #handles the edit form submission.
     @book = Book.find_by_id(params[:id])
