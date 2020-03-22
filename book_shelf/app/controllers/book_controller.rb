@@ -69,8 +69,8 @@ end
     @book.price = params[:price]
     @book.save
   redirect "/books/#{@book.id}"
-end
-
+ end
+end 
 
   delete '/books/:id' do
     Book.destroy(params[:id])
