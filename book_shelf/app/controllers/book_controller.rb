@@ -47,6 +47,7 @@ end
 
   get '/books/:id/edit' do
     if logged_in?
+      if @book && @book.user == current_user #only want the current_user to edit their own books
     @book = Book.find_by_id(params[:id])
     erb :'/books/edit'
   else 
