@@ -25,8 +25,10 @@ class BookController < ApplicationController
 
   post '/books' do 
     if logged_in?
-  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
-  redirect "/books/#{@book.id}"
+      if params[:title] != "" && params[:author] != "" && params[:genre] != "" && params[:price]
+      redirect '/books/new'
+ # @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
+ # redirect "/books/#{@book.id}"
   else 
     redirect '/users/login'
   end
