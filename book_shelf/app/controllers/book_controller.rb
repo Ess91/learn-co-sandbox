@@ -30,12 +30,12 @@ class BookController < ApplicationController
     else 
   @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
   redirect "/books/#{@book.id}"
-  else 
+  elsif  
     redirect '/users/login'
   end
  end
 
-     
+     #line 28 - it checks to see if there are any blank spaces, redirects to new.erb 
        get '/books/:id' do 
   if logged_in?
     @book = Book.find_by_id(params[:id])
