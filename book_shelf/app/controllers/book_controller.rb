@@ -36,8 +36,8 @@ end
  end
      #line 28 - it checks to see if there are any blank spaces, redirects to new.erb 
      
-       get '/books/:id' do 
-  if logged_in?
+  get '/books/:id' do 
+    if logged_in?
     @book = Book.find_by_id(params[:id])
     erb :'/books/show'
   else 
