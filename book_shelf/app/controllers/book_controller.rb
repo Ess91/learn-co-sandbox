@@ -57,6 +57,11 @@ end
   #In order to edit the book. it will be able to access the book's id first through :id before it is able to edit the book
   
   patch '/books/:id' do #handles the edit form submission.
+    if logged_in?
+      if @book && @book.user == current_user
+     params[:title] == "" && params[:author] == "" && params[:genre] == "" && params[:price]
+       redirect "/books/#{@book.id}/edit"
+     else 
     @book = Book.find_by_id(params[:id])
     @book.title = params[:title]
     @book.author = params[:author]
