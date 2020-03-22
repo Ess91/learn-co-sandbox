@@ -71,6 +71,8 @@ end
   redirect "/books/#{@book.id}"
  end
 end 
+redirect 'users/login'
+end 
 
   delete '/books/:id' do
     Book.destroy(params[:id])
