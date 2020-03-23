@@ -61,7 +61,6 @@ end
       @book = Book.find_by_id(params[:id])
       if @book && @book.user == current_user
          @book.update(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
-         @book.save
       redirect "/books/#{@book.id}"
     else
       redirect "/books/#{@book.id}/edit"
