@@ -58,9 +58,10 @@ end
   
   patch '/books/:id' do #handles the edit form submission.
     if logged_in?
+      @book = Book.find_by_id(params[:id])
       if @book && @book.user == current_user
       redirect "/books/#{@book.id}/edit"
-    @book = Book.find_by_id(params[:id])
+    
     @book.title = params[:title]
     @book.author = params[:author]
     @book.genre = params[:genre]
