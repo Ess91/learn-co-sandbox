@@ -59,9 +59,7 @@ end
   patch '/books/:id' do #handles the edit form submission.
     if logged_in?
       if @book && @book.user == current_user
-     params[:title] == "" && params[:author] == "" && params[:genre] == "" && params[:price]
-       redirect "/books/#{@book.id}/edit"
-     else 
+      redirect "/books/#{@book.id}/edit"
     @book = Book.find_by_id(params[:id])
     @book.title = params[:title]
     @book.author = params[:author]
@@ -71,6 +69,7 @@ end
   redirect "/books/#{@book.id}"
  end
 end 
+else 
 redirect 'users/login'
 end 
 
