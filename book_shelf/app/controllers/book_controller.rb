@@ -78,5 +78,7 @@ end
     if logged_in?
     Book.destroy(params[:id])
     redirect '/books'
+  else 
+    redirect 'users/login'
   end
 end
