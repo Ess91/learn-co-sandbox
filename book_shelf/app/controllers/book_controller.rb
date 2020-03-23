@@ -75,7 +75,7 @@ end
     if logged_in?
     @book = Book.find_by_id(params[:id])
     if @book && @book.user == current_user
-    Book.destroy(params[:id])
+    @book.destroy(params[:id])
     redirect '/books'
   else 
     redirect 'users/login'
