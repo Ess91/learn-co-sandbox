@@ -80,6 +80,7 @@ end
   else 
     redirect 'users/login'
   end
+ end 
 end
 
 # :id is the whole object 
