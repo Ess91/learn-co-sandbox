@@ -77,8 +77,8 @@ end
     if @book && @book.user == current_user
     @book.destroy
     redirect '/books'
-  else 
-  else 
+  else #this else belongs to line 77
+  else #this else belongs to the logged_in?
     redirect 'users/login'
   end
  end 
