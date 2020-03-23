@@ -60,14 +60,14 @@ end
     if logged_in?
       @book = Book.find_by_id(params[:id])
       if @book && @book.user == current_user
+         @book.title = params[:title]
+         @book.author = params[:author]
+         @book.genre = params[:genre]
+         @book.price = params[:price]
+         @book.save
+      redirect "/books/#{@book.id}"
+    else
       redirect "/books/#{@book.id}/edit"
-    
-    @book.title = params[:title]
-    @book.author = params[:author]
-    @book.genre = params[:genre]
-    @book.price = params[:price]
-    @book.save
-  redirect "/books/#{@book.id}"
  end
 end 
 else 
