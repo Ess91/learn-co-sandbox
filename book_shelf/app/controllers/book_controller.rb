@@ -75,6 +75,7 @@ redirect 'users/login'
 end 
 
   delete '/books/:id' do
+    if logged_in?
     Book.destroy(params[:id])
     redirect '/books'
   end
