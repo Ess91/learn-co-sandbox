@@ -78,6 +78,7 @@ end
     @book.destroy
     redirect '/books'
   else 
+  else 
     redirect 'users/login'
   end
  end 
