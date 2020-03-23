@@ -64,15 +64,17 @@ end
       redirect "/books/#{@book.id}"
     else
       redirect "/books/#{@book.id}/edit"
- end
+  end
 end 
-else 
+  else 
 redirect 'users/login'
 end 
 
 
   delete '/books/:id' do
     if logged_in?
+    @book = Book.find_by_id(params[:id])
+    if @book && @book.user == current_user
     Book.destroy(params[:id])
     redirect '/books'
   else 
