@@ -10,9 +10,10 @@
       <p>Here is a list of your books: </p>
       <br>
 
-  <% .current_user.book.each do |book| %>
+
+  <p><% @books.each do |book| %> </p>
 <div>
-    <%= book.title %>
+    <p><%= book.title %></p>
   </div>
 <% end %>
 
