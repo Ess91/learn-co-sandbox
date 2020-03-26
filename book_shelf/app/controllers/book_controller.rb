@@ -10,7 +10,7 @@ class BookController < ApplicationController
       redirect '/users/login'
     end 
   end 
-    #DONE
+  
 
 
   #CREATE
@@ -66,7 +66,7 @@ end
       redirect "/books/#{@book.id}/edit"
   end
 end 
-  else 
+#  else 
 redirect 'users/login'
 end 
 
@@ -78,10 +78,11 @@ end
     @book.destroy
     redirect '/books'
   else #this else belongs to line 77
-  else #this else belongs to the logged_in?
+#  else #this else belongs to the logged_in?
     redirect 'users/login'
   end
  end 
-end
+ end
+ end 
 
-# :id is the whole object 
+#:id is the whole object 
