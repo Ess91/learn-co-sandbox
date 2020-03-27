@@ -23,10 +23,7 @@ class ApplicationController < Sinatra::Base
    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-get '/books/index' do #may not need this code but getting error to say I need it
-  #"hello"
-    erb :'/books/index'
-  end 
+
 
 
   
