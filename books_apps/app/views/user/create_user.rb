@@ -1,0 +1,13 @@
+<h2>Sign Up</h2>
+
+<form action="/signup" method="POST">
+
+  <p>Username: <input type='text' id='username' name="username"></p>
+  <p>Password: <input type='password' id='password' name='password'></p>
+  <input type='Submit'>
+
+</form>
+
+<br>
+<p><a href='/login'> Already have an account? Log in here. </a> </p>
+<p><a href='/'> Back to the main page </a></p>
