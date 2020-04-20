@@ -1,0 +1,14 @@
+<h2> Edit Book </h2>
+    <h2> <%= @book.title %></h2>
+    <h3><%= @book.author %></h3><br>
+
+  <form action="/books/<%= @book.id %>" method="POST">
+
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+      <input type="text" placeholder= "Title:" name="title">
+      <input type="text" placeholder= "Author:"name="author">
+      <input type="text" placeholder= "Genre:" name="genre">
+      <input type="text" placeholder= "Comments:" name="comments"><br><br>
+      <button type="update" value="Update" id="update">Update</button>
+  </form>
+</html>

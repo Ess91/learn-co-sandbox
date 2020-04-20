@@ -25,10 +25,10 @@ class BookController < ApplicationController
 
   post '/books' do 
     if logged_in?
-      elsif params[:title] == "" && params[:author] == "" && params[:genre] == "" && params[:price]
+      elsif params[:title] == "" && params[:author] == "" && params[:genre] == "" && params[:comments]
       redirect '/books/new'
     else 
-  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
+  @book = Book.create(:title => params[:title], :author => params[:author], :genre => params[:genre], :comments => params[:comments])
   redirect "/books/#{@book.id}"
 end 
     redirect '/users/login'
@@ -60,7 +60,7 @@ end
     if logged_in?
       @book = Book.find_by_id(params[:id])
       if @book && @book.user == current_user
-         @book.update(:title => params[:title], :author => params[:author], :genre => params[:genre], :price => params[:price])
+         @book.update(:title => params[:title], :author => params[:author], :genre => params[:genre], :comments => params[:comments])
       redirect "/books/#{@book.id}"
     else
       redirect "/books/#{@book.id}/edit"
